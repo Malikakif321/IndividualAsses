@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Creative Canvas Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="logo">Creative Canvas Gallery</div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="login.html">Log In</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="login-container">
+  <h1>Login</h1>
+  <form id="login-form">
+    <div class="error-message" id="error-message"></div>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+    <button type="submit">Login</button>
+  </form>
+  <div class="signup-link">
+    <p>Don't have an account? <a href="signup.html">Sign up here</a>.</p>
+  </div>
+</div>
+
+<script>
+  document.getElementById('login-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Mock successful login by directly setting a token
+    const mockToken = 'mock-token-for-testing';
+    localStorage.setItem('token', mockToken);
+
+    alert('Login successful!');
+    window.location.href = 'dashboard.html'; // Redirect to dashboard
+  });
+</script>
+
+</body>
+</html>

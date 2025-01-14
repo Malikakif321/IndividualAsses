@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - Creative Canvas Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  
+  <div class="logo">Creative Canvas Gallery</div>
+  <nav>
+    <ul>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <!-- <li><a href="booking.html">Bookings</a></li> -->
+      <li><a href="index.html">Logout</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container">
+  <h1>Welcome, <span id="user-name"></span>!</h1>
+
+  <div class="user-info">
+    <h2>Your Profile</h2>
+    <p><strong>Name:</strong> <span id="profile-name"></span></p>
+    <p><strong>Email:</strong> <span id="profile-email"></span></p>
+  </div>
+
+  <div class="bookings">
+    <h2>Your Bookings</h2>
+    <div id="bookings-container">
+      <p>Loading your bookings...</p>
+    </div>
+  </div>
+
+  <a href="index.html" class="logout-btn">Logout</a>
+</div>
+
+<script>
+  const user = {
+    name: 'Malik Muhammad Akif',
+    email: 'akif@gmail.com',
+    bookings: [
+      { id: 1, exhibition: 'Art & Beyond', date: '2024-01-15' },
+      { id: 2, exhibition: 'Colors of Life', date: '2024-02-10' },
+    ]
+  };
+
+  document.getElementById('user-name').innerText = user.name;
+  document.getElementById('profile-name').innerText = user.name;
+  document.getElementById('profile-email').innerText = user.email;
+
+
+  const bookingsContainer = document.getElementById('bookings-container');
+  if (user.bookings.length > 0) {
+    bookingsContainer.innerHTML = user.bookings
+      .map(
+        booking =>
+          `<p><strong>${booking.exhibition}</strong> on ${booking.date}</p>`
+      )
+      .join('');
+  } else {
+    bookingsContainer.innerHTML = '<p>No bookings found.</p>';
+  }
+</script>
+</body>
+</html>
